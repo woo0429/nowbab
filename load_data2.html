@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새 페이지2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px; /* 홈의 상단바와 동일한 padding 값으로 설정 */
+            background-color: #FFA500;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .left-content {
+            display: flex;
+            align-items: center;
+        }
+        .right-content {
+            display: flex;
+            align-items: center;
+        }
+        #usernameDisplay {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #FFFFFF;
+            margin-right: 10px; /* 알림 아이콘과의 간격 */
+        }
+        h1 {
+            font-size: 1.2rem; /* 홈의 상단바와 동일한 font-size 값으로 설정 */
+            margin: 0 10px;
+            font-weight: 700;
+        }
+
+        #home-icon, #notification-icon {
+            width: 40px; /* 홈의 상단바와 동일한 이미지 크기로 설정 */
+            height: 40px; /* 홈의 상단바와 동일한 이미지 크기로 설정 */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1rem; /* 홈의 상단바와 동일한 반응형 font-size 값으로 설정 */
+            }
+
+            #home-icon, #notification-icon {
+                width: 30px; /* 홈의 상단바와 동일한 반응형 이미지 크기로 설정 */
+                height: 30px; /* 홈의 상단바와 동일한 반응형 이미지 크기로 설정 */
+            }
+        }
+        .info-container {
+            width: 40%; /* 상단바 크기의 0.5배로 설정해야 하므로, 상단바 크기에 따라 조정 필요 */
+            background-color: #FFA500;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin-right: auto;
+            margin-left: 20px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left-content">
+            <img src="icon.jpg" alt="로고 이미지" id="home-icon" style="cursor:pointer;">
+            <h1>지금 밥빠?</h1>
+        </div>
+        <div class="right-content">
+            <span id="usernameDisplay"></span> <!-- 사용자 이름을 표시할 요소 추가 -->
+            <img src="bell.png" alt="알림 로고 이미지" id="notification-icon">
+        </div>
+    </header>
+    <main id="main-content">
+        <div class="info-container" id="infoContainer">
+          <!-- 정보가 여기에 표시됩니다 -->
+        </div>
+    </main>
+    <script>
+        function setupPage() {
+            document.getElementById('home-icon').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            var storedUsername = localStorage.getItem('username');
+            if (storedUsername) {
+                document.getElementById('usernameDisplay').textContent = storedUsername + "님";
+            }
+
+            document.getElementById('usernameDisplay').addEventListener('click', function() {
+                localStorage.removeItem('username');
+                window.location.href = 'index.html';
+            });
+
+            displayStoredInfo();
+        }
+
+        function displayStoredInfo() {
+            var infoContainer = document.getElementById("infoContainer");
+            infoContainer.innerHTML = "";
+
+            var infoArray = JSON.parse(localStorage.getItem("infoArray")) || [];
+            infoArray.forEach(function(info, index) {
+                var userFriendlyTime = new Intl.DateTimeFormat('ko-KR', {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: true,
+                    timeZone: 'Asia/Seoul'
+                }).format(new Date(info.time));
+                infoContainer.innerHTML += `장소: ${info.place}<br>인원상태: ${info.status}<br>시간: ${userFriendlyTime}<br><button onclick="removeInfo(${index})">삭제</button><br><br>`;
+            });
+        }
+
+        function removeInfo(index) {
+            var infoArray = JSON.parse(localStorage.getItem("infoArray")) || [];
+            infoArray.splice(index, 1);
+            localStorage.setItem("infoArray", JSON.stringify(infoArray));
+            displayStoredInfo();
+        }
+
+        window.onload = function() {
+            setupPage();
+        }
+    </script>
+</body>
+</html>
+
