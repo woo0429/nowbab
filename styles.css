@@ -1,0 +1,123 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    /* border-bottom: 1px solid #ccc; */ /* 밑줄 제거 */
+}
+
+.header-icon {
+    height: 30px;
+    width: auto;
+}
+
+.menu-icon {
+    width: 56.25px; /* 225px의 절반으로 줄임 */
+    height: 32px; /* 128px의 절반으로 줄임 */
+}
+
+.alarm-icon {
+    width: 56.25px; /* 512px의 0.25배 */
+    height: 32px;  /* 512px의 0.25배 */
+}
+
+.logo {
+    display: block;
+    margin: 20px auto; /* 중앙 정렬 */
+    width : 126.5625px; /* 1012 * 0.25 */
+    height: 151.75px; /* 1214 * 0.25 */
+}
+
+.banner {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 149px; /* 298의 절반 */
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.search-bar {
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 4px solid #FFA500; /* 윤곽선 두께를 2배로 설정 */
+    border-radius: 50px; /* 모서리를 더 둥글게 설정 */
+    padding: 5px;
+}
+
+.search-icon {
+    width: 56.25px; /* 360px의 0.25배 */
+    height: 56.25px; /* 360px의 0.25배 */
+    margin-left: 10px; /* 아이콘을 오른쪽으로 이동 */
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.map {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #FFA500; /* 윤곽선 두께를 2배로 설정 */
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dots img {
+    height: 20px;
+}
+
+.app-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    border: 4px solid #FFA500; /* 윤곽선 두께를 2배로 설정 */
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.footer-icon {
+    height: 30px;
+}
