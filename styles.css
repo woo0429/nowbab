@@ -71,8 +71,8 @@ body, html {
 }
 
 .search-icon {
-    width: 56.25px; /* 360px의 0.25배 */
-    height: 56.25px; /* 360px의 0.25배 */
+    width: 50px; /* 360px의 0.25배 */
+    height: 50px; /* 360px의 0.25배 */
     margin-left: 10px; /* 아이콘을 오른쪽으로 이동 */
 }
 
