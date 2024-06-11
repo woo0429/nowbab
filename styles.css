@@ -123,8 +123,8 @@ body, html {
 }
 
 .footer-icon {
-    height: 100px; /* 이미지 높이를 45px로 설정 */
-    width: 100px;  /* 이미지 너비를 45px로 설정 */
+    height: 60px; /* 이미지 높이를 45px로 설정 */
+    width: 60px;  /* 이미지 너비를 45px로 설정 */
 }
 
 .burger-icon {
