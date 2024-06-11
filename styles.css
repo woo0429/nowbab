@@ -71,8 +71,8 @@ body, html {
 }
 
 .search-icon {
-    width: 50px; /* 360px의 0.25배 */
-    height: 50px; /* 360px의 0.25배 */
+    width: 56.25px; /* 360px의 0.25배 */
+    height: 56.25px; /* 360px의 0.25배 */
     margin-left: 10px; /* 아이콘을 오른쪽으로 이동 */
 }
 
@@ -123,5 +123,6 @@ body, html {
 }
 
 .footer-icon {
-    height: 30px;
+    height: 45px; /* 이미지 높이를 45px로 설정 */
+    width: 45px;  /* 이미지 너비를 45px로 설정 */
 }
