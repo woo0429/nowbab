@@ -112,7 +112,7 @@ body, html {
 
 .app-footer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* 좌측과 우측 정렬 */
     align-items: center;
     padding: 10px;
     background-color: #fff;
@@ -123,6 +123,14 @@ body, html {
 }
 
 .footer-icon {
-    height: 45px; /* 이미지 높이를 45px로 설정 */
-    width: 45px;  /* 이미지 너비를 45px로 설정 */
+    height: 50px; /* 이미지 높이를 45px로 설정 */
+    width: 50px;  /* 이미지 너비를 45px로 설정 */
+}
+
+.burger-icon {
+    margin-left: 10px; /* 좌측 정렬을 위한 여백 추가 */
+}
+
+.menu32-icon {
+    margin-right: 10px; /* 우측 정렬을 위한 여백 추가 */
 }
